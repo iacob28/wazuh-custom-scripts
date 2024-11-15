@@ -1,0 +1,13 @@
+[Unit]
+Description=Monitor Wazuh Log and Filter Integratord Errors
+
+[Service]
+ExecStart=/root/get-integratord-logs/monitor_integratord_logs.sh Restart=always
+User=root
+Group=root
+EnvironmentFile=/root/get-integratord-logs/config.env
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
